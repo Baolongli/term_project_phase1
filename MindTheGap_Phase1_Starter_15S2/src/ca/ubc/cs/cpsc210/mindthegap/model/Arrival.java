@@ -10,6 +10,8 @@ package ca.ubc.cs.cpsc210.mindthegap.model;
  */
 public class Arrival implements Comparable<Arrival>{
     private int timeToStation;
+    private String destination;
+    private String plateform;
 
     /**
      * Constructs a new arrival with the given time to station (in seconds),
@@ -21,6 +23,9 @@ public class Arrival implements Comparable<Arrival>{
      */
     public Arrival(int timeToStation, String destination, String platform) {
         // stub
+    	this.timeToStation = timeToStation;
+    	this.destination = destination;
+    	this.plateform = plateform;
     }
 
     /**
@@ -30,7 +35,10 @@ public class Arrival implements Comparable<Arrival>{
      * @return direction of travel
      */
     public String getTravelDirn() {
-        return null;   // stub
+    	int index = self.plateform.indexof('-');
+    	String dirn = self.plateform.substring(0,index);
+    	dirn = dirn.trim();
+        return dirn;   // stub
     }
 
     /**
@@ -40,7 +48,10 @@ public class Arrival implements Comparable<Arrival>{
      * @return  platform name
      */
     public String getPlatformName() {
-        return null;   // stub
+    	int index = self.plateform.indexof('-');
+    	String dirn = self.plateform.substring(index,self.plateform.length());
+    	dirn = dirn.trim();
+        return dirn;   // stub
     }
 
     /**
@@ -49,15 +60,15 @@ public class Arrival implements Comparable<Arrival>{
      * @return  time until train arrives at station in minutes
      */
     public int getTimeToStationInMins() {
-        return 0;   // stub
+        return self.timeToStation/60;   // stub
     }
 
     public String getDestination() {
-        return null;   // stub
+        return self.destination;   // stub
     }
 
     public String getPlatform() {
-        return null;   // stub
+        return self.plateform;   // stub
     }
 
     /**
